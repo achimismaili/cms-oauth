@@ -4,6 +4,16 @@
   },
   "routes": [
     {
+      "route": "/auth",
+      "redirect": "/api/auth",
+      "statusCode": 302
+    },
+    {
+      "route": "/callback",
+      "redirect": "/api/callback",
+      "statusCode": 302
+    },
+    {
       "route": "/api/*",
       "allowedRoles": ["anonymous"],
       "headers": {
