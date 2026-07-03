@@ -5,5 +5,8 @@
   "main": "index.js",
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.0"
   }
 }
