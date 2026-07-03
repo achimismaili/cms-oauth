@@ -1,0 +1,9 @@
+{
+  "name": "cms-oauth-api",
+  "version": "1.0.0",
+  "description": "GitHub OAuth proxy API for Decap CMS",
+  "main": "index.js",
+  "engines": {
+    "node": ">=22"
+  }
+}
