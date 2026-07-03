@@ -4,14 +4,6 @@
   },
   "routes": [
     {
-      "route": "/auth",
-      "rewrite": "/api/auth"
-    },
-    {
-      "route": "/callback",
-      "rewrite": "/api/callback"
-    },
-    {
       "route": "/api/*",
       "allowedRoles": ["anonymous"],
       "headers": {

@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"></head>
+<body>
+<script>
+// Decap CMS proxy router: forward /auth?... to /api/auth?...
+// (SWA routing cannot rewrite to API functions; this JS redirect preserves the query string)
+window.location.replace('/api/auth' + window.location.search);
+</script>
+</body>
+</html>
