@@ -5,3 +5,4 @@ dist/
 .azure/
 .vscode/
 *.log
+infra/*.json

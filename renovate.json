@@ -1,0 +1,45 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": false,
+  "rebaseWhen": "behind-base-branch",
+  "postUpdateOptions": ["pnpmDedupe"],
+  "lockFileMaintenance": { "enabled": false },
+  "prCreation": "immediate",
+  "timezone": "Europe/Berlin",
+  "schedule": ["before 6am on the first day of the month"],
+  "prConcurrentLimit": 10,
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "Group all @achimismaili easy-web packages — manual review required",
+      "matchPackageNames": ["@achimismaili/**"],
+      "groupName": "easy-web packages",
+      "automerge": false
+    },
+    {
+      "description": "Automerge external devDep patches (conservative)",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch"],
+      "matchPackageNames": ["!@achimismaili/**", "!turbo", "!@inlang/paraglide-js"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "description": "Turbo: never automerge (cache fingerprinting changes)",
+      "matchPackageNames": ["turbo"],
+      "automerge": false
+    },
+    {
+      "description": "Paraglide: never automerge (codegen tool, output changes silently)",
+      "matchPackageNames": ["@inlang/paraglide-js"],
+      "automerge": false
+    },
+    {
+      "description": "Major updates require manual review",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ]
+}
