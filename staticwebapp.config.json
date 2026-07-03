@@ -5,13 +5,11 @@
   "routes": [
     {
       "route": "/auth",
-      "redirect": "/api/auth",
-      "statusCode": 302
+      "rewrite": "/api/auth"
     },
     {
       "route": "/callback",
-      "redirect": "/api/callback",
-      "statusCode": 302
+      "rewrite": "/api/callback"
     },
     {
       "route": "/api/*",
