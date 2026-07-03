@@ -1,0 +1,31 @@
+{
+  "platform": {
+    "apiRuntime": "node:22"
+  },
+  "routes": [
+    {
+      "route": "/auth",
+      "redirect": "/api/auth",
+      "statusCode": 302
+    },
+    {
+      "route": "/callback",
+      "redirect": "/api/callback",
+      "statusCode": 302
+    },
+    {
+      "route": "/api/*",
+      "allowedRoles": ["anonymous"],
+      "headers": {
+        "Cache-Control": "no-store, must-revalidate",
+        "X-Frame-Options": "DENY",
+        "X-Content-Type-Options": "nosniff"
+      }
+    }
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html"
+    }
+  }
+}
